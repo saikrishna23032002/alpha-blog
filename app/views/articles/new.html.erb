@@ -1,6 +1,15 @@
 
 <h1>new page</h1>
 
+<% if @article.errors.any? %>
+<h2>the below errors are responsible</h2>
+<ul>
+<% @article.errors.full_messages.each do |msg| %>
+    <li> <%= msg %>   </li>
+<% end %>
+</ul>
+<% end %>
+
 <%= form_with scope: :article, url:articles_path, data:{turbo:false} do |f| %>
 
 <p>
